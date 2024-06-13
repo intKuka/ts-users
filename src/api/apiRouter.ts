@@ -1,11 +1,11 @@
 import { json, urlencoded, Router } from "express";
-import usersRouter from "./routes/users/usersRouter";
+import usersController from "./controllers/usersController";
 
 const apiRouter: Router = Router();
 
 apiRouter.use(json());
 apiRouter.use(urlencoded({ extended: false }));
 
-apiRouter.use("/users", usersRouter);
+apiRouter.use("/users", usersController);
 
 export default apiRouter;
