@@ -10,7 +10,7 @@ const logRequest = (req: Request, res: Response, next: NextFunction) => {
     req.originalUrl
   }
   request-id: ${requestId}
-  body: ${req.body || "{}"}`;
+  body: ${JSON.stringify(req.body) || "{}"}`;
 
   console.log(log);
   next();

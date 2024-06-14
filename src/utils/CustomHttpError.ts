@@ -5,7 +5,7 @@ abstract class CustomHttpError extends Error {
     super(message);
   }
 
-  abstract serialize(): { message: string };
+  abstract serialize(): { message: string | object };
 }
 
 export default CustomHttpError;

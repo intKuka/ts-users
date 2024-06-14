@@ -5,11 +5,11 @@ interface IUsersData {
 
   findUserById(id: number): Promise<User | null>;
 
-  createUser(user: User): Promise<User>;
+  insertUser(user: User): Promise<User>;
 
-  updateUser(id: number, newUser: User): Promise<void>;
+  updateUser(id: number, newUser: User): Promise<void | null>;
 
-  removeUser(id: number): Promise<void>;
+  removeUser(id: number): Promise<void | null>;
 }
 
 export default IUsersData;

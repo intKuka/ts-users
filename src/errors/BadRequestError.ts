@@ -1,8 +1,8 @@
 import CustomHttpError from "../utils/CustomHttpError";
 
-const NotFoundError = class extends CustomHttpError {
-  statusCode = 404;
-  constructor(public message: string = "Not Found") {
+const BadRequestError = class extends CustomHttpError {
+  statusCode = 400;
+  constructor(public message: string = "Bad Request") {
     super(message);
   }
   serialize(): { message: string | object } {
@@ -10,4 +10,4 @@ const NotFoundError = class extends CustomHttpError {
   }
 };
 
-export default NotFoundError;
+export default BadRequestError;

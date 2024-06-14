@@ -15,16 +15,25 @@ class UsersData implements IUsersData {
     return user;
   }
 
-  async createUser(user: User) {
+  async insertUser(user: User) {
     const createdUser = await repository.save(user);
     return createdUser;
   }
 
   async updateUser(id: number, newUser: User) {
+    const isExists = await repository.existsBy({ id: id });
+    if (!isExists) {
+      return null;
+    }
     await repository.update(id, newUser);
   }
 
   async removeUser(id: number) {
+    const isExists = await repository.existsBy({ id: id });
+    if (!isExists) {
+      return null;
+    }
+
     await repository.delete(id);
   }
 }
